@@ -1,0 +1,211 @@
+/* ===================== Timeline + story row (أول تعارف) ===================== */
+.story-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(22px, 5vw, 70px);
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.timeline-node { display: flex; flex-direction: column; align-items: center; }
+.timeline-node__circle {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  font-family: var(--font-en);
+  font-size: 1.5rem;
+  color: var(--gold-light);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.18) inset;
+}
+.timeline-node__line {
+  flex: 1;
+  width: 1px;
+  min-height: 140px;
+  margin-top: 8px;
+  background: linear-gradient(var(--gold), transparent);
+  transform-origin: top;
+}
+.story-row__content { display: grid; gap: 18px; align-content: start; padding-top: 10px; }
+.story-row__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  color: var(--off-white);
+  line-height: 1.4;
+}
+.story-row__meta { display: flex; flex-wrap: wrap; gap: 8px 28px; color: var(--gold); }
+.story-row__text { max-width: 620px; color: var(--muted); font-size: 1.1rem; }
+.story-row__images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.story-row__images .image-reveal { aspect-ratio: 4 / 3; }
+
+@media (max-width: 640px) {
+  .story-row { grid-template-columns: 1fr; }
+  .timeline-node { flex-direction: row; gap: 14px; }
+  .timeline-node__circle { width: 56px; height: 56px; font-size: 1.1rem; }
+  .timeline-node__line { width: auto; height: 1px; min-height: 0; flex: 1; margin: 0;
+    background: linear-gradient(90deg, var(--gold), transparent); transform-origin: right; }
+}
+
+/* ===================== الرؤية الشرعية ===================== */
+.sharai {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 18px;
+  min-height: 90vh;
+  align-content: center;
+}
+.sharai__ring {
+  position: relative;
+  width: clamp(150px, 22vw, 220px);
+  aspect-ratio: 1;
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+.sharai__ring svg { position: absolute; inset: 0; transform: rotate(-90deg); }
+.sharai__number { font-family: var(--font-en); font-size: clamp(2.6rem, 6vw, 4rem); color: var(--gold-light); font-weight: 300; }
+.sharai__kicker { font-family: var(--font-en); letter-spacing: 0.4em; color: var(--gold); font-size: 0.8rem; direction: ltr; }
+.sharai__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  color: var(--champagne);
+}
+.sharai__date { color: var(--gold); letter-spacing: 0.08em; }
+.sharai__text { max-width: 560px; color: var(--muted); font-size: 1.1rem; }
+
+/* ===================== أول مكالمة ===================== */
+.call-card {
+  position: relative;
+  max-width: 620px;
+  margin-inline: auto;
+  padding: clamp(32px, 6vw, 60px);
+  text-align: center;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, rgba(212, 175, 55, 0.07), transparent 55%), var(--bg-soft);
+}
+.call-card::before, .call-card::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--gold);
+}
+.call-card::before { top: -1px; inset-inline-start: -1px; border-inline-end: 0; border-bottom: 0; }
+.call-card::after { bottom: -1px; inset-inline-end: -1px; border-inline-start: 0; border-top: 0; }
+.call-card__stage { font-family: var(--font-en); font-size: 4.5rem; line-height: 1; color: var(--gold); font-weight: 300; }
+.call-card__title { font-family: var(--font-display); font-weight: 400; font-size: 2rem; margin: 6px 0 24px; color: var(--off-white); }
+.call-card__details { display: flex; justify-content: center; gap: clamp(24px, 6vw, 56px); margin-top: 28px; }
+.call-card__details dt { font-size: 0.8rem; color: var(--gold); letter-spacing: 0.15em; }
+.call-card__details dd { color: var(--off-white); }
+.call-card__text { margin-top: 24px; color: var(--muted); }
+
+.soundwave { display: flex; align-items: center; justify-content: center; gap: 5px; height: 72px; }
+.soundwave span {
+  width: 3px;
+  height: var(--h);
+  border-radius: 2px;
+  background: linear-gradient(var(--gold-light), var(--gold));
+  opacity: 0.85;
+  animation: wave 1.3s ease-in-out infinite;
+}
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+
+/* ===================== الخطوبة ===================== */
+.engagement {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 22px;
+  padding: 120px var(--gutter);
+  text-align: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, rgba(212, 175, 55, 0.12), transparent 65%), #030303;
+}
+.engagement__rule { width: 1px; height: 110px; background: linear-gradient(transparent, var(--gold)); transform-origin: top; }
+.engagement__kicker { font-family: var(--font-en); letter-spacing: 0.4em; color: var(--gold); font-size: 0.8rem; direction: ltr; }
+.engagement__heading {
+  max-width: 1000px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 7.5vw, 6rem);
+  line-height: 1.35;
+  background: linear-gradient(120deg, var(--champagne), var(--gold) 50%, var(--gold-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.engagement__names { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--off-white); }
+.engagement__date { color: var(--gold-light); font-size: clamp(1rem, 2.4vw, 1.35rem); letter-spacing: 0.06em; }
+
+.quiet-counter { margin-top: 26px; display: grid; gap: 12px; color: var(--muted); }
+.quiet-counter__units { display: flex; justify-content: center; gap: clamp(22px, 5vw, 52px); }
+.quiet-counter__units div { display: grid; }
+.quiet-counter__units strong {
+  font-family: var(--font-en);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.1;
+  color: var(--gold);
+  direction: ltr;
+}
+.quiet-counter__units span { font-size: 0.8rem; letter-spacing: 0.15em; }
+
+/* ===================== المشهد الختامي ===================== */
+.closing {
+  position: relative;
+  min-height: 110vh;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 26px;
+  padding: 120px var(--gutter) 140px;
+  text-align: center;
+  background: #000;
+  overflow: hidden;
+}
+.closing__glow {
+  position: absolute;
+  width: 700px;
+  max-width: 120vw;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1), transparent 60%);
+  animation: breathe 7s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(0.94); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.06); }
+}
+.closing > p, .closing > h2 { position: relative; }
+.closing__first { font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--muted); font-weight: 300; }
+.closing__names {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 9vw, 7rem);
+  line-height: 1.25;
+  background: linear-gradient(120deg, var(--champagne), var(--gold) 50%, var(--gold-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.closing__last { font-size: clamp(1.1rem, 2.6vw, 1.6rem); color: var(--gold-light); }
+.closing__memory { margin-top: 36px; font-size: 0.9rem; color: var(--muted); letter-spacing: 0.08em; }
+.closing__memory strong { font-family: var(--font-en); font-weight: 400; color: var(--gold); font-size: 1.3rem; }

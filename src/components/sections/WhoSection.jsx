@@ -1,8 +1,8 @@
 import SectionHeading from '../common/SectionHeading.jsx';
 import useGalleryImages from '../../hooks/useGalleryImages.js';
 import PersonPanel from './PersonPanel.jsx';
-import imgAya from '/Aya.jpg';
-import imgAbdo from '/a.png';
+import imgAya from '/Aya.webp';
+import imgAbdo from '/a.webp';
 /**
  * شاشة منقسمة: شخصيتان مستقلتان قبل أن تلتقيا.
  * صورة كل شخص هي أول صورة في معرضه الشخصي (gallery/aya و gallery/abdelrahman).

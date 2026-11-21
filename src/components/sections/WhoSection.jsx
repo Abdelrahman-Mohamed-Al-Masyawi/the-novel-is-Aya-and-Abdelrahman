@@ -16,7 +16,7 @@ export default function WhoSection({ number, aya, abdelrahman }) {
       <div className="who__split">
         <PersonPanel person={aya} image={ayaImages[0]} direction="right" />
         <div className="who__divider" aria-hidden="true" />
-        <PersonPanel person={abdelrahman} image={abdelrahmanImages[1]} direction="left" />
+        <PersonPanel person={abdelrahman} image={abdelrahmanImages[0]} direction="left" />
       </div>
     </section>
   );
